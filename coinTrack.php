@@ -6,7 +6,11 @@ function timedGet($url)
     $json = file_get_contents($url);
     $obj = json_decode($json);
     echo  +$obj->USD;
-} ?>
+};
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+};
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -24,39 +28,41 @@ function timedGet($url)
         <h1>Crypto Price Tracker</h1>
         <p>It does the thing</p>
     </div>
-
+    <form action="coinTrack.php" method="post">
+        <input type="submit" name="btnSubmit" value="Refresh" />
+    </form>
     <div class="container">
         <div class="row text-center">
             <div class="col">
-                <img src="https://lh3.googleusercontent.com/proxy/1PzqZCpBLPxqQKhD4JusGzxnUCzX1xHQ5VUArYnSeY_VMNH0K30qDdc0rsm3MdMZ98IBwfDzxHK_nvqBtzkJEyOXV_QH86CrFX9sVW28EJylRjFrEhdJ4GmFTMBB" height="150" class="rounded-circle" alt="Cinque Terre">
+                <img src="https://lh3.googleusercontent.com/proxy/1PzqZCpBLPxqQKhD4JusGzxnUCzX1xHQ5VUArYnSeY_VMNH0K30qDdc0rsm3MdMZ98IBwfDzxHK_nvqBtzkJEyOXV_QH86CrFX9sVW28EJylRjFrEhdJ4GmFTMBB" height="150" class="rounded-circle p-2" alt="Cinque Terre">
                 <p>1 Bitcoin = <?php
                                 timedGet('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD');
                                 ?>
                     USD</p>
             </div>
             <div class="col">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" height="150" class="rounded-circle" alt="Cinque Terre">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" height="150" class="rounded-circle p-2" alt="Cinque Terre">
                 <p>1 Etherum = <?php
                                 timedGet('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD');
                                 ?>
                     USD</p>
             </div>
             <div class="col">
-                <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" height="150" class="rounded-circle z-depth-2" alt="Cinque Terre">
+                <img src="https://cryptologos.cc/logos/cardano-ada-logo.png" height="150" class="rounded-circle p-2" alt="Cinque Terre">
                 <p>1 Cardano = <?php
                                 timedGet('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD');
                                 ?>
                     USD</p>
             </div>
             <div class="col">
-                <img src="https://www.cnet.com/a/img/naqtECxGKnGGw7_LPThxRoSbjco=/940x0/2013/12/27/2905f9b4-8533-11e3-bc97-14feb5ca9861/dogecoin.jpg" height="150" class="rounded-circle z-depth-2" alt="Cinque Terre">
+                <img src="https://www.cnet.com/a/img/naqtECxGKnGGw7_LPThxRoSbjco=/940x0/2013/12/27/2905f9b4-8533-11e3-bc97-14feb5ca9861/dogecoin.jpg" height="150" class="rounded-circle p-2" alt="Cinque Terre">
                 <p>1 Doge = <?php
                             timedGet('https://min-api.cryptocompare.com/data/price?fsym=DOGE&tsyms=USD');
                             ?>
                     USD</p>
             </div>
             <div class="col">
-                <img src="https://cdn.worldvectorlogo.com/logos/monero.svg" height="150" class="rounded-circle z-depth-2" alt="Cinque Terre">
+                <img src="https://cdn.worldvectorlogo.com/logos/monero.svg" height="150" class="rounded-circle p-2" alt="Cinque Terre">
                 <p>1 Monero = <?php
                                 timedGet('https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD');
                                 ?>
